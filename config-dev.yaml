@@ -1,0 +1,65 @@
+jwt:
+  signing-key: <CHANGE_ME_JWT_SIGNING_KEY>
+  expires-time: 604800
+  buffer-time: 86400
+  issuer: puzzle
+  token-prefix: lroa-token
+  jwt-prefix: lroa-jwt
+captcha:
+  key-long: 6
+  img-width: 240
+  img-height: 80
+postgres:
+  host: 127.0.0.1
+  port: 5432
+  username: <POSTGRES_USERNAME>
+  password: <POSTGRES_PASSWORD>
+  dbname: lroa-AI
+  max-idle-conns: 5
+  max-open-conns: 20
+  log-mode: debug
+zap:
+  level: INFO
+  format: console
+  prefix: ' [lroa] '
+  director: ./log
+  encode-level: LowercaseColorLevelEncoder
+  stacktrace-key: stacktrace
+  log-in-console: true
+system:
+  addons-path: core/app
+  host: 0.0.0.0
+  port: 9088
+  database: mysql
+  cors: ["*"]
+  default-password: <CHANGE_ME_DEFAULT_PASSWORD>
+  casbin-path: ./core/app/system_layer/resource/rbac_model.conf
+  data-dir: ./data_dir
+  key-salt: "<CHANGE_ME_KEY_SALT>"
+  key-password: "<CHANGE_ME_KEY_PASSWORD>"
+  workers: 1 # 多进程数量
+  storage-type: local  # 存储方式：local 本地存储，minio MinIO存储
+mysql:
+  host: 127.0.0.1
+  port: 3306
+  username: <MYSQL_USERNAME>
+  password: <MYSQL_PASSWORD>
+  dbname: lroa-AI
+  max-idle-conns: 20
+  max-open-conns: 100
+  log-mode: debug
+redis:
+  host: 127.0.0.1
+  port: 6379
+  password: "<REDIS_PASSWORD>"
+  db: 0
+minio:
+  host: <MINIO_HOST>
+  port: 9000
+  username: "<MINIO_USERNAME>"
+  password: "<MINIO_PASSWORD>"
+  bucket-name: lroa-ai
+  external-access: "<MINIO_EXTERNAL_ACCESS>"
+mineru:
+  api_host: "http://localhost"
+  api_port: 8000
